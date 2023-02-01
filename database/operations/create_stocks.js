@@ -1,5 +1,6 @@
 import { DATABASE, set, ref } from "../../firebase_config.js";
 
+const commentsLocationRef = ref(DATABASE, "/stocks");
 fetch(
   "https://api.polygon.io/v3/reference/tickers?market=stocks&exchange=XNAS&active=true",
   {
@@ -10,5 +11,5 @@ fetch(
   }
 )
   .then((res) => res.json())
-  .then((result) => console.log(result))
+  .then(({ results }) => set(commentsLocationRef, results))
   .catch((err) => console.log(err));
