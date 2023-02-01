@@ -1,1 +1,2 @@
-import "./firebase_config";
+import "./firebase_config.js";
+import "./database/operations/create_stocks.js";
